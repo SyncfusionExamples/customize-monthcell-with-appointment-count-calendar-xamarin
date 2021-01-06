@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:CalendarXamarin"
+             xmlns:calendar="clr-namespace:Syncfusion.SfCalendar.XForms;assembly=Syncfusion.SfCalendar.XForms"
+             x:Class="CalendarXamarin.MainPage">
+    <ContentPage.Behaviors>
+        <local:CalendarPageBehavior/>
+    </ContentPage.Behaviors>
+    <ContentPage.Content>
+        <calendar:SfCalendar x:Name="calendar" ShowInlineEvents="True" InlineViewMode="Inline" DataSource="{Binding Appointments}" >
+            <calendar:SfCalendar.MonthViewSettings>
+                <calendar:MonthViewSettings DateSelectionColor="LightGray">
+                    <calendar:MonthViewSettings.CellTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="2*"/>
+                                </Grid.RowDefinitions>
+                                <Label Text="{Binding Date.Day}" 
+                                       HorizontalTextAlignment="Center"
+                                       VerticalTextAlignment="Center" 
+                                       VerticalOptions="FillAndExpand" 
+                                       HorizontalOptions="FillAndExpand" 
+                                       TextColor="Black" 
+                                       FontAttributes="None" 
+                                       FontSize="10"
+                                       Grid.Row="0"/>
+                                <Label x:Name="indicator" Text="{Binding AppointmentCount}"
+                                       HorizontalTextAlignment="Center"
+                                       VerticalTextAlignment="Center" 
+                                       VerticalOptions="FillAndExpand" 
+                                       HorizontalOptions="FillAndExpand" 
+                                       TextColor="Blue"
+                                       FontAttributes="None" 
+                                       FontSize="10"
+                                       Grid.Row="1"/>
+                                <Image Source="stethoscope_calendar.png"
+                                       WidthRequest="20" 
+                                       IsVisible="{Binding IsAppointment}"
+                                       HeightRequest="20" 
+                                       HorizontalOptions="Center" 
+                                       VerticalOptions="Center" 
+                                       Grid.Row="2"/>
+                            </Grid>
+                        </DataTemplate>
+                    </calendar:MonthViewSettings.CellTemplate>
+                </calendar:MonthViewSettings>
+            </calendar:SfCalendar.MonthViewSettings>
+            <calendar:SfCalendar.BindingContext>
+                <local:ViewModel/>
+            </calendar:SfCalendar.BindingContext>
+        </calendar:SfCalendar>
+    </ContentPage.Content>
+</ContentPage>
