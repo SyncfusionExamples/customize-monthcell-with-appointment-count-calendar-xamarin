@@ -1,2 +1,2 @@
-# customize-monthcell-with-appointment-count-calendar-xamarin
-How to customize the month cell with appointment count in Xamarin.Forms Calendar (SfCalendar)
+**[View document in Syncfusion Xamarin Knowledge base](https://www.syncfusion.com/kb/12251/how-to-show-a-particular-week-in-a-day-view-of-xamarin-schedule-sfschedule)**
+
